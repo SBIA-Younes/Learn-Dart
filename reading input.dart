@@ -6,7 +6,16 @@ void main(List<String> args) {
   print('name : ${name ?? "Anonyme"}');
 
   print('Entre yeur age :');
-  int age = int.parse(stdin.readLineSync() ?? ''); 
-  // TODO:  apply condition used if 
-  print("age : $age");
+  String inputAge = stdin.readLineSync() ?? '';
+  int age = 0;
+  if (int.tryParse(inputAge) != null) {
+    age = int.parse(inputAge);
+  } else {
+    print("Error");
+  }
+
+  print('Entre yeur salery :');
+  double? salery = double.tryParse(stdin.readLineSync() ?? '');
+
+  print('name : $name, age : $age, salery : ${salery ?? 0.0}');
 }
